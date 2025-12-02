@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GadgetsHive - Baby Nail Trimmer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            background-color: #fff9fb;
+            overflow-x: hidden;
+        }
+
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Modern Hero Section Styles */
+        .modern-hero {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #fff0f7 0%, #ffe6f2 30%, #f5d9e9 100%);
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .hero-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.08;
+            z-index: 1;
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255, 107, 148, 0.15), rgba(255, 64, 129, 0.1));
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            bottom: 100px;
+            left: -80px;
+            animation-delay: 2s;
+        }
+
+        .shape-3 {
+            width: 150px;
+            height: 150px;
+            top: 40%;
+            right: 20%;
+            animation-delay: 4s;
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 10;
+            padding-top: 20px;
+            padding-bottom: 60px;
+        }
+
+        .hero-brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            padding-top: 20px;
+        }
+
+        .brand-circle {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #ff6b94, #ff4081);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(255, 107, 148, 0.4);
+            margin-right: 15px;
+        }
+
+        .brand-circle i {
+            font-size: 28px;
+            color: white;
+        }
+
+        .brand-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(to right, #ff6b94, #ff4081);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .product-display {
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .product-main {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            transform-style: preserve-3d;
+            animation: gentleFloat 6s ease-in-out infinite;
+        }
+
+        .product-image-wrapper {
+            position: relative;
+            background: white;
+            border-radius: 30px;
+            padding: 30px;
+            box-shadow: 0 30px 60px rgba(255, 107, 148, 0.25);
+            transform: rotateY(-5deg) rotateX(5deg);
+            overflow: hidden;
+            transition: transform 0.5s ease;
+        }
+
+        .product-image-wrapper:hover {
+            transform: rotateY(0deg) rotateX(0deg);
+        }
+
+        .product-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(255, 107, 148, 0.05));
+            z-index: 1;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+        }
+
+        .product-label {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(135deg, #ff6b94, #ff4081);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 14px;
+            z-index: 3;
+            box-shadow: 0 5px 15px rgba(255, 107, 148, 0.4);
+        }
+
+        .product-discount {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            color: #ff4081;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 20px;
+            z-index: 3;
+            box-shadow: 0 10px 20px rgba(255, 107, 148, 0.3);
+            border: 4px solid #ffe6f0;
+        }
+
+        .product-discount span {
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: -5px;
+        }
+
+        .hero-text-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #333, #ff6b94);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        .price-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .current-price {
+            font-size: 42px;
+            font-weight: 800;
+            color: #ff4081;
+            text-shadow: 2px 2px 4px rgba(255, 107, 148, 0.2);
+        }
+
+        .original-price {
+            font-size: 24px;
+            color: #999;
+            text-decoration: line-through;
+            margin-left: 10px;
+        }
+
+        .badges-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .badge {
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .delivery-badge {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+        }
+
+        .safety-badge {
+            background: linear-gradient(135deg, #00b09b, #96c93d);
+            color: white;
+        }
+
+        .rechargeable-badge {
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: white;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b94, #ff4081);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 18px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 10px 25px rgba(255, 107, 148, 0.4);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(255, 107, 148, 0.6);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #555;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 18px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            max-width: 500px;
+        }
+
+        .customer-avatars {
+            display: flex;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 3px solid white;
+            margin-left: -10px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .avatar:nth-child(1) {
+            background-image: url('https://images.unsplash.com/photo-1494790108755-2616b786d4d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80');
+            z-index: 4;
+            margin-left: 0;
+        }
+
+        .avatar:nth-child(2) {
+            background-image: url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80');
+            z-index: 3;
+        }
+
+        .avatar:nth-child(3) {
+            background-image: url('https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80');
+            z-index: 2;
+        }
+
+        .avatar:nth-child(4) {
+            background-image: url('https://images.unsplash.com/photo-1500048993953-d23a436266cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80');
+            z-index: 1;
+        }
+
+        .trust-text {
+            font-weight: 600;
+            color: #555;
+        }
+
+        .trust-text span {
+            color: #ff4081;
+            font-weight: 800;
+        }
+
+        .hero-baby-images {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .baby-image-item {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .baby-image-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .baby-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Original Styles */
+        .btn-primary-original {
+            background-color: #ff85a2;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary-original:hover {
+            background-color: #ff6b94;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 107, 148, 0.3);
+        }
+
+        .btn-secondary-original {
+            background-color: #f1f5f9;
+            color: #475569;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-secondary-original:hover {
+            background-color: #e2e8f0;
+        }
+
+        .floating-btn {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            bottom: 100px;
+            right: 30px;
+        }
+
+        .call-btn {
+            background-color: #2c02e7;
+            color: white;
+            bottom: 30px;
+            right: 30px;
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 30px;
+        }
+
+        .product-image {
+            transition: transform 0.5s ease;
+        }
+
+        .product-image:hover {
+            transform: scale(1.05);
+        }
+
+        .delivery-badge-original {
+            background-color: #ffe6f0;
+            color: #b3385e;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .cod-badge {
+            background-color: #e0f7fa;
+            color: #007c91;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .price-tag {
+            color: #ff4081;
+            font-weight: 700;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(255, 107, 148, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Unique Delivery Charges Badge */
+       .delivery-floating-badge {
+    position: fixed;
+    bottom: 14px;
+    left: 20px;
+    background: linear-gradient(135deg, #ff6b94, #ff4081);
+    color: white;
+    padding: 8px 8px; /* Reduced padding */
+    border-radius: 15px; /* Slightly smaller radius */
+    font-weight: 700;
+    box-shadow: 0 8px 25px rgba(255, 107, 148, 0.4);
+    z-index: 998;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 140px; /* Reduced from 180px */
+    text-align: center;
+    border: 2px solid white; /* Reduced border thickness */
+    animation: pulse 2s infinite;
+    transform-origin: center;
+}
+
+.delivery-floating-badge:before {
+    content: '';
+    position: absolute;
+    top: -8px; /* Reduced from -10px */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent; /* Reduced from 10px */
+    border-right: 8px solid transparent; /* Reduced from 10px */
+    border-bottom: 8px solid #ff6b94; /* Reduced from 10px */
+}
+
+.delivery-floating-badge i {
+    font-size: 20px; /* Reduced from 24px */
+    margin-bottom: 5px; /* Reduced from 8px */
+    background: white;
+    color: #ff4081;
+    width: 40px; /* Reduced from 50px */
+    height: 40px; /* Reduced from 50px */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delivery-floating-badge .badge-title {
+    font-size: 10px; /* Reduced from 12px */
+    margin-bottom: 3px; /* Reduced from 5px */
+    opacity: 0.9;
+}
+
+.delivery-floating-badge .badge-price {
+    font-size: 20px; /* Reduced from 24px */
+    font-weight: 800;
+    margin-bottom: 3px; /* Reduced from 5px */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.delivery-floating-badge .badge-note {
+    font-size: 12px; /* Reduced from 11px */
+    opacity: 0.8;
+    font-weight: 900;
+}
+
+        /* YouTube Video Container */
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 Aspect Ratio */
+            height: 0;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 107, 148, 0.1), rgba(255, 64, 129, 0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-container:hover .video-overlay {
+            opacity: 1;
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff6b94, #ff4081);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 30px;
+            box-shadow: 0 10px 30px rgba(255, 107, 148, 0.5);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        @keyframes gentleFloat {
+
+            0%,
+            100% {
+                transform: translateY(0) rotateY(-5deg) rotateX(5deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotateY(-5deg) rotateX(5deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 22px;
+                bottom: 20px;
+            }
+
+            .whatsapp-btn {
+                right: 20px;
+                bottom: 80px;
+            }
+
+            .call-btn {
+                right: 20px;
+                bottom: 20px;
+            }
+
+            .delivery-floating-badge {
+                right: 10px;
+                top: 120px;
+                width: 160px;
+                padding: 15px 10px;
+            }
+
+            .modern-hero {
+                min-height: auto;
+                padding-bottom: 60px;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .hero-subtitle {
+                font-size: 16px;
+            }
+
+            .current-price {
+                font-size: 32px;
+            }
+
+            .product-img {
+                height: 250px;
+            }
+
+            .hero-baby-images {
+                margin-top: 30px;
+            }
+
+            .baby-image-item {
+                width: 100px;
+                height: 100px;
+            }
+
+            .video-container {
+                border-radius: 15px;
+            }
+
+            .play-button {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .delivery-floating-badge {
+                position: relative;
+                top: auto;
+                right: auto;
+                width: 100%;
+                border-radius: 15px;
+                margin-bottom: 20px;
+                animation: none;
+            }
+
+            .hero-title {
+                font-size: 28px;
+            }
+
+            .brand-text {
+                font-size: 24px;
+            }
+
+            .brand-circle {
+                width: 50px;
+                height: 50px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .image-gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .image-gallery img:hover {
+            transform: scale(1.03);
+        }
+
+        .main-product-image {
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            background: white;
+            padding: 20px;
+        }
+
+        .header {
+            background-color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 50px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #ff6b94, #ff4081);
+            border-radius: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Unique Delivery Charges Badgdelivery-floating-badge"e -->
+    <div class="delivery-floating-badge">
+        <i class="fas fa-shipping-fast"></i>
+        <div class="badge-title">DELIVERY CHARGES</div>
+        <div class="badge-price">PKR 250</div>
+        <div class="badge-note">Advance Payment Required</div>
+    </div>
+
+    <!-- Floating Action Buttons -->
+    <a href="https://wa.me/923303573361?text=Hi,%20I'm%20interested%20in%20the%20Baby%20Nail%20Trimmer" target="_blank"
+        class="floating-btn whatsapp-btn">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <a href="tel:+923303573361" class="floating-btn call-btn">
+        <i class="fas fa-phone-alt"></i>
+    </a>
+
+    <!-- Modern Hero Section -->
+    <section class="modern-hero">
+        <div class="hero-background">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 hero-container">
+            <!-- Brand Logo -->
+            <div class="hero-brand">
+                <div class="brand-circle">
+                    <i class="fas fa-baby"></i>
+                </div>
+                <div class="brand-text">GadgetsHive</div>
+            </div>
+
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-20">
+                <!-- Product Display -->
+                <div class="lg:w-1/2 product-display">
+                    <div class="product-main">
+                        <div class="product-image-wrapper">
+                            <div class="product-label">SAFE & GENTLE</div>
+                            <img src="https://microless.com/cdn/products/bc47c1adfddfabd52b3c81f0c91255c3-hi.jpg"
+                                alt="Baby Nail Trimmer" class="product-img">
+                            <div class="product-discount">
+                                40% <span>OFF</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Baby Images Showcase -->
+                    <div class="hero-baby-images">
+                        <div class="baby-image-item">
+                            <img src="https://img.lazcdn.com/g/p/1a7653eb32f35558a171ea98944684f3.png_720x720q80.png"
+                                alt="Baby with mother" class="baby-image">
+                        </div>
+                        <div class="baby-image-item">
+                            <img src="https://widetraders.pk/cdn/shop/files/61zsD9aA7EL._AC_UF894_1000_QL80.jpg?v=1697295604"
+                                alt="Baby smiling" class="baby-image">
+                        </div>
+                        <div class="baby-image-item">
+                            <img src="https://video.drz.lazcdn.com/vod-4e6588/8cb68580241171ee9e2187c7361c0102/snapshots/normal/48B0D8CC-189603E30C4-1637-5547-817-8203000001.jpg"
+                                alt="Baby care" class="baby-image">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Text Content -->
+                <div class="lg:w-1/2 hero-text-content">
+                    <h1 class="hero-title">Baby Nail Trimmer</h1>
+                    <p class="hero-subtitle">The revolutionary nail trimmer designed specifically for babies. No more
+                        worries about hurting your little one while trimming their delicate nails. Quick, painless, and
+                        completely safe.</p>
+
+                    <!-- Price Section -->
+                    <div class="price-container">
+                        <div class="current-price">PKR 2,249</div>
+                        <div class="original-price">PKR 3,150</div>
+                    </div>
+
+                    <!-- Badges -->
+                    <div class="badges-container">
+                        <div class="badge delivery-badge">
+                            <i class="fas fa-shipping-fast"></i> Fast Delivery
+                        </div>
+                        <div class="badge safety-badge">
+                            <i class="fas fa-shield-alt"></i> 100% Safe
+                        </div>
+                        <div class="badge rechargeable-badge">
+                            <i class="fas fa-bolt"></i> Rechargeable
+                        </div>
+                    </div>
+
+                    <!-- Call to Action Buttons -->
+                    <div class="cta-buttons">
+                        <a href="#order" class="btn-primary">
+                            <i class="fas fa-shopping-cart"></i> Order Now
+                        </a>
+                        <a href="#video-section" class="btn-secondary">
+                            <i class="fas fa-play-circle"></i> Watch Demo
+                        </a>
+                    </div>
+
+                    <!-- Trust Badge -->
+                    <div class="trust-badge">
+                        <div class="customer-avatars">
+                            <div class="avatar"></div>
+                            <div class="avatar"></div>
+                            <div class="avatar"></div>
+                            <div class="avatar"></div>
+                        </div>
+                        <div class="trust-text">
+                            <span>1,200+</span> happy parents trust our product
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube Video Section -->
+    <section id="video-section" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="heading-font text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12 section-title">Watch
+                How It Works</h2>
+
+            <div class="mb-12">
+                <div class="video-container">
+                    <div class="video-wrapper">
+                      <iframe src="https://www.youtube.com/embed/pn3cfEUS44g?si=JlFs5hQ_fJpn4Vl6" 
+        title="Baby Nail Trimmer Demo" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+</iframe>
+                        <div class="video-overlay">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <div class="text-center">
+                    <div class="text-5xl text-pink-500 font-bold mb-4">1</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Charge the Device</h3>
+                    <p class="text-gray-600">Fully charge the trimmer using the included USB cable (takes about 2 hours)
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="text-5xl text-pink-500 font-bold mb-4">2</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Select Speed</h3>
+                    <p class="text-gray-600">Choose between two speed settings based on your baby's age and nail
+                        thickness</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="text-5xl text-pink-500 font-bold mb-4">3</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Trim Gently</h3>
+                    <p class="text-gray-600">Gently guide the trimmer along your baby's nails for a perfect trim every
+                        time</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section id="features" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="heading-font text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12 section-title">Why
+                Our Baby Nail Trimmer is Special</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="text-center">
+                    <div class="feature-icon bg-pink-100 text-pink-600">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">100% Safe</h3>
+                    <p class="text-gray-600">Gentle grinding system prevents cuts and injuries. No sharp edges to harm
+                        your baby's delicate skin.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="feature-icon bg-pink-100 text-pink-600">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Quick & Easy</h3>
+                    <p class="text-gray-600">Trim nails in seconds with our efficient motor. Perfect for squirming
+                        babies who won't stay still.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="feature-icon bg-pink-100 text-pink-600">
+                        <i class="fas fa-battery-full"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Rechargeable</h3>
+                    <p class="text-gray-600">USB rechargeable battery lasts for weeks. No more searching for batteries
+                        at the last moment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="heading-font text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12 section-title">What
+                Parents Are Saying</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-pink-200 rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Ayesha Khan</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"I was always scared to trim my newborn's nails. This product has been a
+                        lifesaver! So easy to use and completely safe."</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-pink-300 rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Ali Ahmed</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"My wife and I struggled with regular nail clippers. This trimmer makes the
+                        process so quick and our baby doesn't even cry now!"</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-pink-400 rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Fatima Sheikh</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Best baby product I've purchased! The delivery was fast and the COD option
+                        was convenient. Highly recommend to all parents!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Section -->
+    <section id="order" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 p-8 md:p-12">
+                        <h2 class="heading-font text-3xl font-bold text-gray-900 mb-6">Order Your Baby Nail Trimmer</h2>
+
+                        <div class="mb-8">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-xl font-bold text-gray-900">Baby Nail Trimmer</h3>
+                                <span class="text-2xl font-bold price-tag">PKR 2,249</span>
+                            </div>
+
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-gray-600">Delivery Charges (Advance)</span>
+                                <span class="font-bold">PKR 250</span>
+                            </div>
+
+                            <div class="flex justify-between items-center border-t border-gray-200 pt-4 mb-6">
+                                <span class="text-lg font-bold">Total Payable</span>
+                                <span class="text-2xl font-bold price-tag">PKR 2,499</span>
+                            </div>
+
+                            <div class="mb-8">
+                                <div class="cod-badge mb-4">Cash on Delivery Available</div>
+                                <p class="text-gray-600 text-sm">Pay PKR 250 advance online for delivery confirmation.
+                                    Remaining PKR 2,249 payable in cash when your product is delivered.</p>
+                            </div>
+                        </div>
+
+                        <form id="orderForm" class="space-y-6">
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2" for="name">Full Name</label>
+                                <input type="text" id="name" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2" for="phone">Phone Number</label>
+                                <input type="tel" id="phone" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2" for="city">City</label>
+                                <input type="text" id="city" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2" for="address">Full Address</label>
+                                <textarea id="address" rows="3" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"></textarea>
+                            </div>
+
+                            <div class="flex items-center">
+                                <input type="checkbox" id="agree" required
+                                    class="w-4 h-4 text-pink-600 border-gray-300 rounded focus:ring-pink-500">
+                                <label for="agree" class="ml-2 text-gray-600 text-sm">I agree to pay PKR 250 advance for
+                                    delivery confirmation</label>
+                            </div>
+
+                            <button type="submit" class="btn-primary-original w-full text-center">Send Order via
+                                WhatsApp</button>
+
+                            <p class="text-gray-500 text-sm text-center">Our team will contact you within 2 hours to
+                                confirm your order</p>
+                        </form>
+                    </div>
+
+                    <div
+                        class="md:w-1/2 bg-gradient-to-br from-pink-50 to-pink-100 p-8 md:p-12 flex flex-col justify-center">
+                        <h3 class="heading-font text-2xl font-bold text-gray-900 mb-6">What's Included</h3>
+
+                        <ul class="space-y-4 mb-10">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                <span class="text-gray-700">1 x Baby Nail Trimmer</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                <span class="text-gray-700">3 x Replacement Grinding Heads</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                <span class="text-gray-700">USB Charging Cable</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                <span class="text-gray-700">User Manual</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                <span class="text-gray-700">Travel Pouch</span>
+                            </li>
+                        </ul>
+
+                        <div class="bg-white rounded-xl p-6">
+                            <h4 class="font-bold text-gray-900 mb-3">Delivery Information</h4>
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-shipping-fast text-pink-600 mr-3"></i>
+                                <span class="text-gray-700">3-5 Business Days Delivery Across Pakistan</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-money-bill-wave text-pink-600 mr-3"></i>
+                                <span class="text-gray-700">PKR 250 advance required for delivery confirmation</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <img src="https://microless.com/cdn/products/bc47c1adfddfabd52b3c81f0c91255c3-hi.jpg"
+                                alt="Package Contents" class="rounded-xl shadow-lg w-full h-auto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-pink-500 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-baby text-white text-xl"></i>
+                        </div>
+                        <h1 class="heading-font text-2xl font-bold">Baby<span class="text-pink-400">Care</span>Hive</h1>
+                    </div>
+                    <p class="text-gray-400">Safe baby care products for modern parents</p>
+                </div>
+
+                <div class="text-center md:text-right">
+                    <h4 class="text-lg font-bold mb-4">Contact Us</h4>
+                    <div class="text-gray-400">
+                        <p class="mb-2"><i class="fas fa-phone-alt mr-2"></i> +92 330 3573361</p>
+                        <p class="mb-2"><i class="fab fa-whatsapp mr-2"></i> +92 330 3573361</p>
+                        <p><i class="fas fa-map-marker-alt mr-2"></i> Karachi, Pakistan</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-10 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 GadgetsHive. All rights reserved. | COD Available | Delivery Charges: PKR 250 Advance
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handling - Send order to WhatsApp
+        document.getElementById('orderForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const city = document.getElementById('city').value;
+            const address = document.getElementById('address').value;
+
+            if (name && phone && city && address) {
+                // Create WhatsApp message
+                const product = "Baby Nail Trimmer";
+                const price = "PKR 2,249";
+                const delivery = "PKR 250";
+                const total = "PKR 2,499";
+
+                const message = `*New Order - Baby Nail Trimmer*%0A%0A` +
+                    `*Name:* ${name}%0A` +
+                    `*Phone:* ${phone}%0A` +
+                    `*City:* ${city}%0A` +
+                    `*Address:* ${address}%0A%0A` +
+                    `*Product:* ${product}%0A` +
+                    `*Price:* ${price}%0A` +
+                    `*Delivery Charges:* ${delivery}%0A` +
+                    `*Total Amount:* ${total}%0A%0A` +
+                    `*Payment Method:* Cash on Delivery%0A` +
+                    `*Advance Payment:* PKR 250 (Ready to Pay)%0A%0A` +
+                    `I agree to pay PKR 250 advance for delivery confirmation.`;
+
+                // Open WhatsApp with pre-filled message
+                const whatsappURL = `https://wa.me/923303573361?text=${message}`;
+                window.open(whatsappURL, '_blank');
+
+                // Reset form
+                document.getElementById('orderForm').reset();
+
+                // Show confirmation message
+                alert("Opening WhatsApp to send your order details. Please send the message to complete your order.");
+            } else {
+                alert("Please fill in all the required fields.");
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Auto-format phone number for Pakistan
+        document.getElementById('phone').addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, '');
+
+            if (value.startsWith('0')) {
+                value = '92' + value.substring(1);
+            }
+
+            if (value.length > 0 && !value.startsWith('92')) {
+                value = '92' + value;
+            }
+
+            // Format as +92 330 3573361
+            if (value.length > 2) {
+                value = value.substring(0, 2) + ' ' + value.substring(2);
+            }
+            if (value.length > 6) {
+                value = value.substring(0, 6) + ' ' + value.substring(6);
+            }
+            if (value.length > 11) {
+                value = value.substring(0, 11) + ' ' + value.substring(11);
+            }
+
+            e.target.value = value;
+        });
+
+        // Add interactivity for the product display
+        document.addEventListener('DOMContentLoaded', function () {
+            const productWrapper = document.querySelector('.product-image-wrapper');
+
+            if (productWrapper) {
+                // Add mouse move effect for 3D perspective
+                productWrapper.addEventListener('mousemove', function (e) {
+                    const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+                    const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+                    productWrapper.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+                });
+
+                // Reset when mouse leaves
+                productWrapper.addEventListener('mouseleave', function () {
+                    productWrapper.style.transform = 'rotateY(-5deg) rotateX(5deg)';
+                });
+
+                // Add animation to badges
+                const badges = document.querySelectorAll('.badge');
+                badges.forEach((badge, index) => {
+                    badge.style.animationDelay = `${index * 0.2}s`;
+                    badge.style.animation = `float 6s ease-in-out infinite`;
+                });
+            }
+
+            // Video play button functionality
+            const playButton = document.querySelector('.play-button');
+            const videoIframe = document.querySelector('iframe');
+
+            if (playButton && videoIframe) {
+                playButton.addEventListener('click', function () {
+                    // Get the current iframe src
+                    let src = videoIframe.src;
+
+                    // Check if autoplay is already enabled
+                    if (!src.includes('autoplay=1')) {
+                        // Add autoplay parameter
+                        if (src.includes('?')) {
+                            src += '&autoplay=1';
+                        } else {
+                            src += '?autoplay=1';
+                        }
+                        videoIframe.src = src;
+                    }
+
+                    // Hide the play button
+                    document.querySelector('.video-overlay').style.display = 'none';
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
